@@ -1,0 +1,402 @@
+
+/* ==========================================
+   1. RESET Y VARIABLES GENERALES
+   ========================================== */
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-light: #FFFFFF;
+  --bg-yellow: #ECEA00;
+  --text-light: #FFFFFF;
+  --text-dark: #111111;
+  --border-color: #2A2A2A;
+  
+  /* Nuevas tipografías */
+  --font-display: 'DIN Condensed', sans-serif;
+  --font-body: 'Darker Grotesque', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  /* Como Darker Grotesque es un poco más estrecha y compacta, 
+     subimos ligeramente el tamaño base y el grosor para que se lea perfectamente */
+  font-size: 1.2rem; 
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Aplicar DIN Condensed a todos los H1 y H2 por igual */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400; /* DIN Condensed suele usarse en su peso por defecto/bold nativo */
+  letter-spacing: 1px;
+}
+
+/* Ajustes específicos de tamaños para que encajen bien con DIN Condensed */
+.about-content h2,
+.room-content h2 {
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem); /* DIN Condensed luce genial en tamaños grandes */
+}
+
+.page-header h1 {
+  font-size: clamp(3.2rem, 5vw, 4.2rem);
+}
+
+/* Párrafos con Darker Grotesque */
+p {
+  font-family: var(--font-body);
+  font-weight: 400; /* Puedes probar 500 o 600 si los quieres más marcados */
+}
+
+.about-content p {
+  font-size: 1.25rem; /* Un tamaño generoso y elegante para esta fuente */
+  font-weight: 400;
+  color: #E0E0E0;
+}
+
+.room-content p {
+  font-size: 1.2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================
+   2. NAVEGACIÓN Y COMPONENTES COMUNES
+   ========================================== */
+.navbar {
+  background-color: var(--bg-light);
+  padding: 14px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar nav {
+  margin-left: auto;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-dice {
+  width: 28px;
+  height: 28px;
+  transform: rotate(-16deg);
+  transition: transform 0.2s ease;
+}
+
+.nav-brand:hover .nav-dice {
+  transform: rotate(0deg);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.navbar a:hover {
+  opacity: 0.65;
+}
+
+.navbar a.active {
+  font-weight: 700;
+}
+
+/* Clase para ocultar elementos visualmente pero mantenerlos accesibles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Línea divisoria */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 12px 64px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.btn-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   3. ESTILOS DE LA PÁGINA DE INICIO (INDEX)
+   ========================================== */
+.hero {
+  padding: 90px 0 110px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.brand-logo img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+}
+
+.hero-image img,
+.about-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.about {
+  padding: 100px 0 120px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.about-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.about-content p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #E0E0E0;
+  margin-bottom: 14px;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   4. ESTILOS DE LA PÁGINA DE SALAS
+   ========================================== */
+.page-header {
+  background-color: var(--bg-dark);
+  padding: 36px 0 28px;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.5vw, 3.6rem);
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: var(--text-light);
+  line-height: 1;
+}
+
+.room-section {
+  padding: 64px 0;
+}
+
+.room-yellow {
+  background-color: var(--bg-yellow);
+  color: var(--text-dark);
+}
+
+.room-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 52px;
+}
+
+.room-grid-reverse {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.room-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.room-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  letter-spacing: 1px;
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.room-content p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.room-yellow .room-content p {
+  font-weight: 400;
+}
+
+.room-dark .room-content p {
+  font-weight: 300;
+  color: #E6E6E6;
+}
+
+/* ==========================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.footer {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  padding: 28px 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-copy {
+  text-align: center;
+}
+
+.footer-contact {
+  text-align: right;
+}
+
+/* ==========================================
+   6. DISEÑO RESPONSIVO (MÓVIL Y TABLET)
+   ========================================== */
+@media (max-width: 860px) {
+  .navbar {
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .navbar nav {
+    margin-left: 0;
+  }
+
+  .navbar ul {
+    gap: 18px;
+  }
+
+  .hero {
+    padding: 60px 0 70px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .room-grid,
+  .room-grid-reverse {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .brand-logo {
+    justify-content: center;
+  }
+
+  .brand-logo img {
+    max-width: 360px;
+  }
+
+  .about {
+    padding: 70px 0 80px;
+  }
+
+  .about-image,
+  .room-grid-reverse .room-image {
+    order: 2;
+  }
+
+  .room-section {
+    padding: 48px 0;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-contact {
+    text-align: center;
+  }
+}
