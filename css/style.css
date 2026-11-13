@@ -1,4 +1,3 @@
-
 /* ==========================================
    1. RESET Y VARIABLES GENERALES
    ========================================== */
@@ -6,8 +5,6 @@
   --negro: #0A0A0A;
   --blanco: #FFFFFF;
   --amarillo: #ECEA00;
-  
-  /* Nuevas tipografías */
   --font-display: 'DIN Condensed', sans-serif;
   --font-body: 'Darker Grotesque', sans-serif;
 }
@@ -22,55 +19,37 @@ body {
   background-color: var(--negro);
   color: var(--blanco);
   font-family: var(--font-body);
-  /* Como Darker Grotesque es un poco más estrecha y compacta, 
-     subimos ligeramente el tamaño base y el grosor para que se lea perfectamente */
   font-size: 1.2rem; 
-  line-height: 1.4;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* Aplicar DIN Condensed a todos los H1 y H2 por igual */
+/* Tipografías de Encabezados */
 h1, h2 {
   font-family: var(--font-display);
-  font-weight: 400; /* DIN Condensed suele usarse en su peso por defecto/bold nativo */
+  font-weight: 400;
   letter-spacing: 1px;
 }
 
-/* Ajustes específicos de tamaños para que encajen bien con DIN Condensed */
 .about-content h2,
 .room-content h2 {
-  font-size: clamp(2.8rem, 4.5vw, 3.8rem); /* DIN Condensed luce genial en tamaños grandes */
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
 }
 
 .page-header h1 {
   font-size: clamp(3.2rem, 5vw, 4.2rem);
 }
 
-/* Párrafos con Darker Grotesque */
-p {
-  font-family: var(--font-body);
-  font-weight: 400; /* Puedes probar 500 o 600 si los quieres más marcados */
-}
-
-.about-content p {
-  font-size: 2rem; /* Un tamaño generoso y elegante para esta fuente */
-  font-weight: 400;
-  color: #E0E0E0;
-}
-
-.room-content p {
-  font-size: 1.2rem;
-}
-
+/* Contenedor general */
 .container {
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 16px;
 }
 
 /* ==========================================
    2. NAVEGACIÓN Y COMPONENTES COMUNES
    ========================================== */
-.navbar {
+.menu {
   background-color: var(--blanco);
   padding: 14px 48px;
   display: flex;
@@ -78,50 +57,35 @@ p {
   align-items: center;
 }
 
-.navbar nav {
+.menu nav {
   margin-left: auto;
 }
 
-.nav-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.nav-dice {
-  width: 28px;
-  height: 28px;
-  transform: rotate(-16deg);
-  transition: transform 0.2s ease;
-}
-
-.nav-brand:hover .nav-dice {
-  transform: rotate(0deg);
-}
-
-.navbar ul {
+.menu ul {
   list-style: none;
   display: flex;
   gap: 32px;
 }
 
-.navbar a {
+.menu a {
   text-decoration: none;
   color: var(--negro);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
   transition: opacity 0.2s ease;
 }
 
-.navbar a:hover {
+.menu a:hover {
   opacity: 0.65;
 }
 
-.navbar a.active {
-  font-weight: 700;
+.menu a.active {
+  font-weight: 800;
+  border-bottom: 2px solid var(--negro);
+  padding-bottom: 2px;
 }
 
-/* Clase para ocultar elementos visualmente pero mantenerlos accesibles */
+/* Clase para ocultar elementos visualmente */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -216,16 +180,12 @@ p {
 }
 
 .about-content h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 3.8vw, 3rem);
-  letter-spacing: 1px;
   margin-bottom: 24px;
-  font-weight: 400;
 }
 
 .about-content p {
-  font-size: 0.92rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: #E0E0E0;
   margin-bottom: 14px;
 }
@@ -243,10 +203,6 @@ p {
 }
 
 .page-header h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.5vw, 3.6rem);
-  letter-spacing: 1px;
-  font-weight: 400;
   color: var(--blanco);
   line-height: 1;
 }
@@ -284,26 +240,27 @@ p {
 }
 
 .room-content h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  letter-spacing: 1px;
-  font-weight: 400;
   line-height: 1.05;
   margin-bottom: 24px;
 }
 
 .room-content p {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-bottom: 8px;
 }
 
 .room-yellow .room-content p {
-  font-weight: 400;
+  font-weight: 600;
+  color: var(--negro);
 }
 
 .room-dark .room-content p {
-  font-weight: 300;
+  font-weight: 400;
   color: #E6E6E6;
+}
+
+.room-spec {
+  font-weight: 800 !important;
 }
 
 /* ==========================================
@@ -313,7 +270,7 @@ p {
   background-color: var(--blanco);
   color: var(--negro);
   padding: 28px 0;
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
@@ -331,69 +288,287 @@ p {
   text-align: right;
 }
 
+
 /* ==========================================
-   6. DISEÑO RESPONSIVO (MÓVIL Y TABLET)
+   7. ESTILOS DE LA PÁGINA DE CARTA
    ========================================== */
-@media (max-width: 860px) {
-  .navbar {
-    justify-content: center;
-    padding: 14px 20px;
-  }
-
-  .navbar nav {
-    margin-left: 0;
-  }
-
-  .navbar ul {
-    gap: 18px;
-  }
-
-  .hero {
-    padding: 60px 0 70px;
-  }
-
-  .hero-grid,
-  .about-grid,
-  .room-grid,
-  .room-grid-reverse {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .brand-logo {
-    justify-content: center;
-  }
-
-  .brand-logo img {
-    max-width: 360px;
-  }
-
-  .about {
-    padding: 70px 0 80px;
-  }
-
-  .about-image,
-  .room-grid-reverse .room-image {
-    order: 2;
-  }
-
-  .room-section {
-    padding: 48px 0;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .footer-grid {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-
-  .footer-contact {
-    text-align: center;
-  }
+.menu-section {
+  padding-bottom: 80px;
 }
+
+.menu-category {
+  margin-bottom: 50px;
+}
+
+/* Título de categoría con línea horizontal */
+.menu-category h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: var(--blanco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--blanco);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.menu-line {
+  font-weight: 300;
+}
+
+/* Lista de platos y precios */
+.menu-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #E6E6E6;
+}
+
+.menu-items .price {
+  font-weight: 600;
+  color: var(--blanco);
+}
+
+/* ==========================================
+   8. ESTILOS DE LA PÁGINA DE JUEGOS
+   ========================================== */
+.games-section {
+  padding-bottom: 100px;
+}
+
+/* Filtros superiores */
+.games-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 8px 24px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.filter-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  font-weight: bold;
+  box-shadow: 0 0 0 2px var(--blanco);
+}
+
+/* Cuadrícula de juegos */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+  align-items: center;
+}
+
+.game-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-card img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.game-card img:hover {
+  transform: scale(1.03);
+}
+
+/* ==========================================
+   ACTUALIZACIÓN DE FILTROS DE JUEGOS
+   ========================================== */
+.games-filters {
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio entre los botones */
+  align-items: center;
+  gap: 16px; /* Espacio entre los botones */
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.filter-btn {
+  flex: 1; /* Hace que todos los botones crezcan por igual y abarquen todo el ancho exacto de la cuadrícula */
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.filter-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  font-weight: bold;
+  box-shadow: 0 0 0 2px var(--blanco);
+}
+
+
+
+/* ==========================================
+   9. ESTILOS DE LA PÁGINA DE CONTACTO
+   ========================================== */
+.contact-section {
+  padding: 60px 0 100px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Formulario de contacto */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: var(--blanco);
+}
+
+.form-group input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--blanco);
+  padding: 10px 0;
+  color: var(--blanco);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #777777;
+}
+
+.form-group input:focus {
+  border-color: var(--amarillo);
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--blanco);
+}
+
+.form-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--amarillo);
+  cursor: pointer;
+}
+
+.btn-yellow {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Contenedor y Mapa interactivo */
+.contact-map-container {
+  width: 100%;
+  height: 420px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map-frame-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map-frame-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-overlay-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(10, 10, 10, 0.85);
+  color: var(--blanco);
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  border-radius: 20px;
+  pointer-events: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.map-link:hover .map-overlay-hint {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-weight: bold;
+}
+
