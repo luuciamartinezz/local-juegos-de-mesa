@@ -3,12 +3,9 @@
    1. RESET Y VARIABLES GENERALES
    ========================================== */
 :root {
-  --bg-dark: #0A0A0A;
-  --bg-light: #FFFFFF;
-  --bg-yellow: #ECEA00;
-  --text-light: #FFFFFF;
-  --text-dark: #111111;
-  --border-color: #2A2A2A;
+  --negro: #0A0A0A;
+  --blanco: #FFFFFF;
+  --amarillo: #ECEA00;
   
   /* Nuevas tipografías */
   --font-display: 'DIN Condensed', sans-serif;
@@ -22,8 +19,8 @@
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+  background-color: var(--negro);
+  color: var(--blanco);
   font-family: var(--font-body);
   /* Como Darker Grotesque es un poco más estrecha y compacta, 
      subimos ligeramente el tamaño base y el grosor para que se lea perfectamente */
@@ -56,7 +53,7 @@ p {
 }
 
 .about-content p {
-  font-size: 1.25rem; /* Un tamaño generoso y elegante para esta fuente */
+  font-size: 2rem; /* Un tamaño generoso y elegante para esta fuente */
   font-weight: 400;
   color: #E0E0E0;
 }
@@ -74,7 +71,7 @@ p {
    2. NAVEGACIÓN Y COMPONENTES COMUNES
    ========================================== */
 .navbar {
-  background-color: var(--bg-light);
+  background-color: var(--blanco);
   padding: 14px 48px;
   display: flex;
   justify-content: space-between;
@@ -110,7 +107,7 @@ p {
 
 .navbar a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--negro);
   font-size: 0.95rem;
   font-weight: 500;
   transition: opacity 0.2s ease;
@@ -140,7 +137,7 @@ p {
 /* Línea divisoria */
 .divider {
   border: none;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--blanco);
   margin: 0;
 }
 
@@ -163,13 +160,13 @@ p {
 }
 
 .btn-dark {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+  background-color: var(--negro);
+  color: var(--blanco);
 }
 
 .btn-light {
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--blanco);
+  color: var(--negro);
 }
 
 /* ==========================================
@@ -241,7 +238,7 @@ p {
    4. ESTILOS DE LA PÁGINA DE SALAS
    ========================================== */
 .page-header {
-  background-color: var(--bg-dark);
+  background-color: var(--negro);
   padding: 36px 0 28px;
 }
 
@@ -250,7 +247,7 @@ p {
   font-size: clamp(2.8rem, 4.5vw, 3.6rem);
   letter-spacing: 1px;
   font-weight: 400;
-  color: var(--text-light);
+  color: var(--blanco);
   line-height: 1;
 }
 
@@ -259,13 +256,13 @@ p {
 }
 
 .room-yellow {
-  background-color: var(--bg-yellow);
-  color: var(--text-dark);
+  background-color: var(--amarillo);
+  color: var(--negro);
 }
 
 .room-dark {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+  background-color: var(--negro);
+  color: var(--blanco);
 }
 
 .room-grid {
@@ -313,8 +310,8 @@ p {
    5. PIE DE PÁGINA (FOOTER)
    ========================================== */
 .footer {
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--blanco);
+  color: var(--negro);
   padding: 28px 0;
   font-size: 0.72rem;
   line-height: 1.5;
