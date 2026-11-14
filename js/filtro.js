@@ -2,27 +2,31 @@ document.addEventListener("DOMContentLoaded", function() {
     var filterButtons = document.querySelectorAll(".filter-btn");
     var gameCards = document.querySelectorAll(".game-card");
 
-    filterButtons.forEach(function(button) {
-        button.addEventListener("click", function() {
-            // Eliminar la clase active de todos los botones
-            filterButtons.forEach(function(btn) {
-                btn.classList.remove("active");
-            });
+    for (var i = 0; i < filterButtons.length; i++) {
+        
+        filterButtons[i].addEventListener("click", function() {
+            
+            
+            for (var j = 0; j < filterButtons.length; j++) {
+                filterButtons[j].classList.remove("active");
+            }
 
-            // Añadir la clase active al botón pulsado
-            button.classList.add("active");
+            
+            this.classList.add("active");
 
-            var filter = button.getAttribute("data-filter");
+            
+            var filter = this.getAttribute("data-filter");
 
-            gameCards.forEach(function(card) {
-                var category = card.getAttribute("data-categoria");
-                
+            
+            for (var k = 0; k < gameCards.length; k++) {
+                var category = gameCards[k].getAttribute("data-categoria");
+
                 if (filter === "todos" || category === filter) {
-                    card.style.display = "flex";
+                    gameCards[k].style.display = "flex";
                 } else {
-                    card.style.display = "none";
+                    gameCards[k].style.display = "none";
                 }
-            });
+            }
         });
-    });
+    }
 });
