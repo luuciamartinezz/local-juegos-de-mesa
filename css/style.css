@@ -575,3 +575,30 @@ h1, h2 {
   padding-top: 16px;
   padding-bottom: 20px;
 }
+
+/* ==========================================
+   CARRUSEL AUTOMÁTICO EN EL HERO
+   ========================================== */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 360px; /* La misma altura que tenías en .hero-image img */
+  overflow: hidden;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Transición suave entre fotos */
+  display: block;
+}
+
+/* La imagen activa se muestra por completo */
+.carousel-img.active {
+  opacity: 1;
+}
