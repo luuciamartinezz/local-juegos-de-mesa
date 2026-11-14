@@ -523,3 +523,55 @@ h1, h2 {
   color: var(--negro);
   font-weight: bold;
 }
+
+
+
+/* ==========================================
+   ESTILOS DEL ACORDEÓN DE LA CARTA
+   ========================================== */
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: var(--blanco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--blanco);
+  padding-bottom: 8px;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
+  color: var(--amarillo);
+}
+
+/* Animación del guion/icono cuando se activa el acordeón */
+.accordion-header .menu-line {
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .menu-line {
+  transform: rotate(45deg); /* Gira el guion en cruz o aspa al abrir */
+}
+
+/* Contenedor colapsable del acordeón */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  padding-top: 0;
+}
+
+/* Cuando se abre el acordeón, dejamos espacio interno */
+.accordion-header.active + .accordion-content {
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
