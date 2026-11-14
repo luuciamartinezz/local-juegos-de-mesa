@@ -1,3 +1,5 @@
+AOS.init();
+
 document.addEventListener("DOMContentLoaded", function() {
     var filterButtons = document.querySelectorAll(".filter-btn");
     var gameCards = document.querySelectorAll(".game-card");
