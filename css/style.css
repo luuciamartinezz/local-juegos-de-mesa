@@ -1,4 +1,6 @@
-/*1.VARIABLES GENERALES */
+/* =========================================================
+   1. VARIABLES GENERALES Y RESET
+   ========================================================= */
 :root {
   --negro: #0A0A0A;
   --blanco: #FFFFFF;
@@ -42,8 +44,29 @@ h1, h2 {
   padding: 0 16px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-/* 2. NAVEGACIÓN Y COMPONENTES COMUNES*/
+/* Línea divisoria */
+.divider {
+  border: none;
+  border-top: 1px solid var(--blanco);
+  margin: 0;
+}
+
+
+/* =========================================================
+   2. NAVEGACIÓN Y BOTONES GENERALES
+   ========================================================= */
 .menu {
   background-color: var(--blanco);
   padding: 14px 48px;
@@ -80,27 +103,7 @@ h1, h2 {
   padding-bottom: 2px;
 }
 
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Línea divisoria */
-.divider {
-  border: none;
-  border-top: 1px solid var(--blanco);
-  margin: 0;
-}
-
-/* Botones Generales y de Filtro*/
+/* Botones Generales y de Filtro */
 .btn,
 .filter-btn {
   display: inline-flex;
@@ -147,13 +150,14 @@ h1, h2 {
 }
 
 
-/* 3.HOME*/
+/* =========================================================
+   3. HOME (INICIO Y CARRUSEL)
+   ========================================================= */
 .hero {
   min-height: calc(100vh - 70px); 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 0;
 }
 
 .hero-grid {
@@ -185,6 +189,30 @@ h1, h2 {
   display: block;
 }
 
+/* Carrusel Automático en el Hero */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: block;
+}
+
+.carousel-img.active {
+  opacity: 1;
+}
+
 .about {
   padding: 100px 0 120px;
 }
@@ -212,7 +240,9 @@ h1, h2 {
 }
 
 
-/* 4.SALAS*/
+/* =========================================================
+   4. SALAS
+   ========================================================= */
 .page-header {
   background-color: var(--negro);
   padding: 36px 0 28px;
@@ -280,55 +310,15 @@ h1, h2 {
 }
 
 
-/* 5. FOOTER*/
-.footer {
-  background-color: var(--blanco);
-  color: var(--negro);
-  padding: 12px 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.footer-copy {
-  text-align: center;
-}
-
-.footer-contact {
-  text-align: right;
-}
-
-
-/* 6.CARTA*/
+/* =========================================================
+   5. CARTA (CON ACORDEÓN)
+   ========================================================= */
 .menu-section {
   padding-bottom: 80px;
 }
 
 .menu-category {
   margin-bottom: 50px;
-}
-
-.menu-category h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  letter-spacing: 1px;
-  font-weight: 400;
-  color: var(--blanco);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--blanco);
-  padding-bottom: 8px;
-  margin-bottom: 24px;
-}
-
-.menu-line {
-  font-weight: 300;
 }
 
 .menu-items {
@@ -353,8 +343,56 @@ h1, h2 {
   color: var(--blanco);
 }
 
+/* Estilos del Acordeón de la Carta */
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: var(--blanco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--blanco);
+  padding-bottom: 8px;
+  text-align: left;
+  transition: color 0.2s ease;
+  margin-bottom: 24px;
+}
 
-/* 7.JUEGOS*/
+.accordion-header:hover {
+  color: var(--amarillo);
+}
+
+.accordion-header .menu-line {
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .menu-line {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  padding-top: 0;
+}
+
+.accordion-header.active + .accordion-content {
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+
+
+/* =========================================================
+   6. JUEGOS
+   ========================================================= */
 .games-section {
   padding-bottom: 100px;
 }
@@ -409,7 +447,9 @@ h1, h2 {
 }
 
 
-/* 8. CONTACTO*/
+/* =========================================================
+   7. CONTACTO
+   ========================================================= */
 .contact-section {
   padding: 60px 0 100px;
 }
@@ -525,80 +565,158 @@ h1, h2 {
 }
 
 
-
-/* ==========================================
-   ESTILOS DEL ACORDEÓN DE LA CARTA
-   ========================================== */
-.accordion-header {
-  width: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  letter-spacing: 1px;
-  font-weight: 400;
-  color: var(--blanco);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--blanco);
-  padding-bottom: 8px;
-  text-align: left;
-  transition: color 0.2s ease;
-}
-
-.accordion-header:hover {
-  color: var(--amarillo);
-}
-
-/* Animación del guion/icono cuando se activa el acordeón */
-.accordion-header .menu-line {
-  font-weight: 300;
-  transition: transform 0.3s ease;
-}
-
-.accordion-header.active .menu-line {
-  transform: rotate(45deg); /* Gira el guion en cruz o aspa al abrir */
-}
-
-/* Contenedor colapsable del acordeón */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease-out;
-  padding-top: 0;
-}
-
-/* Cuando se abre el acordeón, dejamos espacio interno */
-.accordion-header.active + .accordion-content {
-  padding-top: 16px;
-  padding-bottom: 20px;
-}
-
-/* ==========================================
-   CARRUSEL AUTOMÁTICO EN EL HERO
-   ========================================== */
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 360px; /* La misma altura que tenías en .hero-image img */
-  overflow: hidden;
-}
-
-.carousel-img {
-  position: absolute;
+/* =========================================================
+   8. VENTANA MODAL Y CALENDARIO (RESERVAS)
+   ========================================================= */
+.modal {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-color: rgba(10, 10, 10, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
   opacity: 0;
-  transition: opacity 1s ease-in-out; /* Transición suave entre fotos */
-  display: block;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* La imagen activa se muestra por completo */
-.carousel-img.active {
+.modal.is-abierta {
   opacity: 1;
+  visibility: visible;
+}
+
+.modal__contenido {
+  background-color: var(--negro);
+  border: 2px solid var(--blanco);
+  width: 90%;
+  max-width: 1000px;
+  padding: 40px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal__titulo {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--blanco);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.modal__cerrar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.modal__cerrar:hover {
+  color: var(--amarillo);
+}
+
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Calendario dentro de la modal */
+.calendario-box {
+  color: var(--blanco);
+  font-family: var(--font-body);
+}
+
+.fecha-header-modal {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.calendario-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.cal-flecha {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.calendario-grid-dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 12px 8px;
+  font-size: 1.1rem;
+}
+
+.calendario-grid-dias span {
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 4px;
+}
+
+/* Cabecera de días de la semana (LUN, MAR...) */
+.calendario-grid-dias span:nth-child(-n+7) {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #999;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.calendario-grid-dias span:hover:not(:nth-child(-n+7)):not(:empty) {
+  background-color: var(--blanco);
+  color: var(--negro);
+}
+
+.calendario-grid-dias span.dia-seleccionado {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   9. FOOTER
+   ========================================================= */
+.footer {
+  background-color: var(--blanco);
+  color: var(--negro);
+  padding: 12px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-copy {
+  text-align: center;
+}
+
+.footer-contact {
+  text-align: right;
 }

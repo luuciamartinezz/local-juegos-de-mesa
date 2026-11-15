@@ -50,7 +50,7 @@
           <p class="room-spec">4-6 personas</p>
           <p class="room-spec">Tiempo máximo: 1 hora y 30 minutos</p>
 
-          <a href="#reservar-quick-play" class="btn btn-dark">RESERVAR</a>
+          <button type="button" class="btn btn-dark btn-reservar">RESERVAR</button>
         </div>
       </div>
     </section>
@@ -66,7 +66,7 @@
           <p class="room-spec">5-7 personas</p>
           <p class="room-spec">Tiempo máximo: 2 horas</p>
 
-          <a href="#reservar-the-squad" class="btn btn-light">RESERVAR</a>
+          <button type="button" class="btn btn-light btn-reservar">RESERVAR</button>
         </div>
 
         <div class="room-image">
@@ -90,11 +90,80 @@
           <p class="room-spec">8-12 personas</p>
           <p class="room-spec">Tiempo máximo: 3 horas</p>
 
-          <a href="#reservar-boss-level" class="btn btn-dark">RESERVAR</a>
+          <button type="button" class="btn btn-dark btn-reservar">RESERVAR</button>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- VENTANA MODAL DE RESERVA -->
+  <div class="modal" id="modal-reserva">
+    <div class="modal__contenido">
+      
+      <!-- Botón de cerrar-->
+      <button type="button" class="modal__cerrar" id="modal-cerrar">&times;</button>
+
+      <h2 class="modal__titulo">RESERVA</h2>
+
+      <form class="modal-form" id="form-reserva">
+        <div class="modal-form-grid">
+          
+          <!--Formulario-->
+          <div class="contact-form">
+            <div class="form-group">
+              <label for="nombre">NOMBRE</label>
+              <input type="text" id="nombre" placeholder="Escribe aquí" required>
+            </div>
+
+            <div class="form-group">
+              <label for="apellidos">APELLIDOS</label>
+              <input type="text" id="apellidos" placeholder="Escribe aquí" required>
+            </div>
+
+            <div class="form-group">
+              <label for="personas">NÚMERO DE PERSONAS</label>
+              <input type="number" id="personas" placeholder="Escribe aquí" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" placeholder="tuemail@ejemplo.com" required>
+            </div>
+
+            <div class="form-checkbox-group">
+              <input type="checkbox" id="info">
+              <label for="info">Acepto recibir información sobre GAME DISTRICT.</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-yellow">RESERVAR</button>
+          </div>
+
+          <!--Calendario-->
+          <div class="calendario-box">
+            <div class="fecha-header-modal">
+              <span>FECHA</span>
+            </div>
+            <div class="calendario-nav">
+              <span class="cal-flecha">&lt;</span>
+              <span class="cal-mes">Noviembre 2026</span>
+              <span class="cal-flecha">&gt;</span>
+            </div>
+            
+            <div class="calendario-grid-dias">
+              <span>LUN</span><span>MAR</span><span>X</span><span>JUE</span><span>VIE</span><span>SAB</span><span>DOM</span>
+              <span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+              <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
+              <span>28</span><span>29</span><span>30</span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
 
   <!--footer-->
   <footer class="footer">
@@ -118,6 +187,6 @@
       </div>
     </div>
   </footer>
-
+  <script src="js/formulario.js"></script>
 </body>
 </html>
