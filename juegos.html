@@ -12,14 +12,21 @@
 </head>
 <body>
 
-  <!--menu-->
+  <!-- menu -->
   <header class="menu">
-    <nav>
+    <!-- Botón hamburguesa (solo visible en móvil/tablet) -->
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="menu-nav">
       <ul>
-        <li><a href="home.html">Inicio</a></li>
+        <li><a href="home.html" >Inicio</a></li> 
         <li><a href="salas.html">Salas</a></li>
-        <li><a href="carta.html">Carta</a></li>
-        <li><a href="juegos.html" class="active">Juegos</a></li>
+        <li><a href="carta.html" >Carta</a></li>
+        <li><a href="juegos.html" class="active" >Juegos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
@@ -174,5 +181,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Script de filtrado -->
   <script src="js/filtro.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 </html>

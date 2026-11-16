@@ -11,13 +11,20 @@
 </head>
 <body>
 
-  <!-- menu-->
+  <!-- menu -->
   <header class="menu">
-    <nav>
+    <!-- Botón hamburguesa (solo visible en móvil/tablet) -->
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="menu-nav">
       <ul>
-        <li><a href="home.html" class="active">Inicio</a></li>
+        <li><a href="home.html" class="active" >Inicio</a></li> 
         <li><a href="salas.html">Salas</a></li>
-        <li><a href="carta.html">Carta</a></li>
+        <li><a href="carta.html" >Carta</a></li>
         <li><a href="juegos.html">Juegos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
@@ -103,5 +110,6 @@
       transition: 'cubic-bezier(0,0,0,1)'
     });
   </script>
+  <script src="js/menu.js"></script>
 </body>
 </html>

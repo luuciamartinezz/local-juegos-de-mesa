@@ -1,6 +1,4 @@
-/* =========================================================
-   1. VARIABLES GENERALES Y RESET
-   ========================================================= */
+/* VARIABLES GENERALES Y RESET */
 :root {
   --negro: #0A0A0A;
   --blanco: #FFFFFF;
@@ -64,9 +62,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   2. NAVEGACIÓN Y BOTONES GENERALES
-   ========================================================= */
+/* NAVEGACIÓN Y BOTONES GENERALES*/
 .menu {
   background-color: var(--blanco);
   padding: 14px 48px;
@@ -150,9 +146,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   3. HOME (INICIO Y CARRUSEL)
-   ========================================================= */
+/* HOME */
 .hero {
   min-height: calc(100vh - 70px); 
   display: flex;
@@ -240,9 +234,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   4. SALAS
-   ========================================================= */
+/* SALAS*/
 .page-header {
   background-color: var(--negro);
   padding: 36px 0 28px;
@@ -310,9 +302,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   5. CARTA (CON ACORDEÓN)
-   ========================================================= */
+/* CARTA (CON ACORDEÓN)*/
 .menu-section {
   padding-bottom: 80px;
 }
@@ -390,9 +380,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   6. JUEGOS
-   ========================================================= */
+/* JUEGOS*/
 .games-section {
   padding-bottom: 100px;
 }
@@ -447,9 +435,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   7. CONTACTO
-   ========================================================= */
+/* CONTACTO */
 .contact-section {
   padding: 60px 0 100px;
 }
@@ -543,31 +529,8 @@ h1, h2 {
   display: block;
 }
 
-.map-overlay-hint {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(10, 10, 10, 0.85);
-  color: var(--blanco);
-  padding: 6px 16px;
-  font-size: 0.9rem;
-  font-family: var(--font-body);
-  border-radius: 20px;
-  pointer-events: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
 
-.map-link:hover .map-overlay-hint {
-  background-color: var(--amarillo);
-  color: var(--negro);
-  font-weight: bold;
-}
-
-
-/* =========================================================
-   8. VENTANA MODAL Y CALENDARIO (RESERVAS)
-   ========================================================= */
+/* VENTANA MODAL Y CALENDARIO (RESERVAS) */
 .modal {
   position: fixed;
   top: 0;
@@ -675,7 +638,7 @@ h1, h2 {
   border-radius: 4px;
 }
 
-/* Cabecera de días de la semana (LUN, MAR...) */
+/* días de la semana */
 .calendario-grid-dias span:nth-child(-n+7) {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -696,9 +659,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   9. FOOTER
-   ========================================================= */
+/* FOOTER*/
 .footer {
   background-color: var(--blanco);
   color: var(--negro);
@@ -719,4 +680,190 @@ h1, h2 {
 
 .footer-contact {
   text-align: right;
+}
+
+/* =========================================================
+   10. ESTILOS BASE DEL BOTÓN HAMBURGUESA (OCULTO EN PC)
+   ========================================================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--negro);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación del botón a "X" cuando se abre el menú */
+.menu-toggle.is-activo span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.is-activo span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-activo span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   11. RESPONSIVE: TABLETS (HASTA 992px)
+   ========================================================= */
+@media (max-width: 992px) {
+  .menu {
+    padding: 14px 24px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .room-grid,
+  .room-grid-reverse,
+  .contact-grid,
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .brand-logo {
+    justify-content: center;
+  }
+
+  .room-grid-reverse .room-image {
+    order: -1;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+
+  .modal__contenido {
+    padding: 30px 24px;
+  }
+}
+
+
+/* =========================================================
+   12. RESPONSIVE: MÓVILES (HASTA 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    position: relative;
+  }
+
+  .menu nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--blanco);
+    border-top: 1px solid #E0E0E0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out;
+    z-index: 1000;
+  }
+
+  .menu nav.is-abierto {
+    max-height: 350px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 16px 0;
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1.25rem;
+  }
+
+  .menu a.active {
+    border-bottom: none;
+    background-color: var(--amarillo);
+  }
+
+  .hero-image img,
+  .about-image img,
+  .room-image img,
+  .carousel {
+    height: 250px;
+  }
+
+  .about,
+  .room-section,
+  .contact-section {
+    padding: 48px 0;
+  }
+
+  .games-filters {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex: 1 1 45%;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .accordion-header {
+    font-size: 1.8rem;
+  }
+
+  .menu-items li {
+    font-size: 1.1rem;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+
+  .footer-contact {
+    text-align: center;
+  }
 }
