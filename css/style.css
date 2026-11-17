@@ -1,6 +1,6 @@
 /* VARIABLES GENERALES Y RESET */
 :root {
-  --negro: #0A0A0A;
+  --negro: #000000;
   --blanco: #FFFFFF;
   --amarillo: #ECEA00;
   --font-display: 'DIN Condensed', sans-serif;
@@ -682,9 +682,7 @@ h1, h2 {
   text-align: right;
 }
 
-/* =========================================================
-   10. ESTILOS BASE DEL BOTÓN HAMBURGUESA (OCULTO EN PC)
-   ========================================================= */
+/* ESTILOS BASE DEL BOTÓN HAMBURGUESA */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -721,9 +719,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   11. RESPONSIVE: TABLETS (HASTA 992px)
-   ========================================================= */
+/* RESPONSIVE: TABLETS (HASTA 992px)*/
 @media (max-width: 992px) {
   .menu {
     padding: 14px 24px;
@@ -763,9 +759,7 @@ h1, h2 {
 }
 
 
-/* =========================================================
-   12. RESPONSIVE: MÓVILES (HASTA 768px)
-   ========================================================= */
+/* RESPONSIVE: MÓVILES */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
